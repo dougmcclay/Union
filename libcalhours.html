@@ -1,8 +1,8 @@
 <style type="text/css">
 .its-today {
-background-color: rgba(202, 0, 61);
+background-color: rgba(189, 212, 227, 1);
 font-weight: bold;
-color:white;
+color:black;
 }
 
 #this-weeks-hours, #next-weeks-hours {
@@ -10,7 +10,7 @@ list-style: none;
 padding: 5px 0 0 5px;
 }
 
-.dates {
+.dates, .nextdates {
 font-family: 'Martel', serif;
 font-size: 1.2em;
 padding: 0 .3em;
@@ -132,8 +132,8 @@ const weekRendered ={};
 })();
 </script>
 
-<h3>Library Hours:</h3>
+<h2>Library Hours:</h2>
 <ul id="this-weeks-hours"></ul>
-<br />
-<h3>Next Week's Hours:</h3>
+<br>
+<h2>Next Week's Hours:</h2>
 <ul id="next-weeks-hours"></ul>
