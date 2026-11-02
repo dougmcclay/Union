@@ -1,0 +1,42 @@
+<style type="text/css">#todays-hours, #display-date{
+font-family:'Montserrat', 'Century Gothic', CenturyGothic, AppleGothic, 'Trebuchet MS', Helvetica, sans-serif;
+font-size:1rem;}
+</style>
+
+<!-- The container where the date will be shown -->
+    <div id="display-date" class="date-container">Loading date...</div>
+
+    <script>
+        function showCurrentDate() {
+            // 1. Create a new Date object
+            const today = new Date();
+
+            // 2. Define how you want the date to be formatted
+            const options = { 
+                weekday: 'long',  // e.g., Monday
+                year: 'numeric',  // e.g., 2026
+                month: 'long',    // e.g., November
+                day: 'numeric'    // e.g., 2
+            };
+
+            // 3. Format the date based on local system settings
+            const formattedDate = today.toLocaleDateString('en-US', options);
+
+            // 4. Inject it into the HTML container
+            document.getElementById('display-date').textContent = formattedDate;
+        }
+
+        // Run the function when the page loads
+        showCurrentDate();
+    </script>
+
+
+<div id="todays-hours">&nbsp;</div>
+<script>
+var apis4librarians_todayshours = function(){$(document).ready(function () {
+$.getJSON("https://uau.libcal.com/api_hours_today.php?format=json&systemTime=0&callback=?", function (json) {
+$('#todays-hours').append("<span id='todays-hours-text'></span> " + "<span id=todays-hours-hours>" + json.locations[0].rendered + "</span");
+});
+});}();</script>
+
+<p>&nbsp;</p>
